@@ -1,0 +1,39 @@
+{% extends "templates/teacherbase.twig" %}
+
+{% block title %} Add Student {% endblock %}
+
+{% block styles %} 
+    <link rel="stylesheet" href="/assets/styles/addBook.css" type="text/css"/>
+{% endblock %}
+
+{% block body %}
+    <div class="overlay-main"></div>
+    <section class="main">
+        <form class="main-inner" method="POST">
+            <h3>Add New Student</h3>
+            <div class="form-input">
+                <label for="studentName">Student Name</label>
+                <input type="text" name="studentName" id="" placeholder="Enter Student name" required>
+            </div>
+            <div class="form-input">
+                <label for="userid">User ID</label>
+                <input type="text" name="userId" id="" placeholder="Enter UserID" required>
+            </div>            
+            <div class="form-input">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="" placeholder="Password" required>
+            </div>            
+            <div class="form-input">
+                <label for="phone">Phone Number</label>
+                <input type="text" name="phone" id="" placeholder="Phone" required>
+            </div>
+            <div class="form-input">
+                <input type="submit" value="Add" class="btn">
+            </div>
+        </form>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+<script src="/assets/scripts/search-t.js"></script>
+{% endblock %}

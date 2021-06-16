@@ -1,0 +1,86 @@
+{% extends "templates/teacherbase.twig" %}
+
+{% block title %} Home {% endblock %}
+
+{% block styles %} 
+<link rel="stylesheet" href="/assets/styles/teacherHome.css" />
+{% endblock %}
+
+{% block body %}
+
+    <div class="tasks login">
+      <form action="/teacher/return" class="form" id="return-book">
+          <div class="form-inner">
+              <h3 style="color: black;">Return Book</h3>
+              <input type="text" name="id" id="" class="text-field" placeholder="TransactionID" required>
+              <input type="submit" value="Submit" class="btn">
+              <a class="close c1">Close</a>
+          </div>
+      </form>
+      <form action="/teacher/edit" class="form" id="edit-delete">
+          <div class="form-inner">
+              <h3 style="color: black;">Edit/Delete</h3>
+              <input type="text" name="id" id="" class="text-field" placeholder="BookID" required>
+              <input type="submit" value="Submit" class="btn">
+              <a class="close c2">Close</a>
+          </div>
+      </form>
+  </div>
+  <div class="overlay-main"></div>
+    <section class="main">
+      <div class="main-inner">
+
+        <div class="options-container">
+          <a class="option" href="/teacher/requests">
+            <div class="option-left"><img src="/assets/images/books.svg" width="90%" alt=""></div>
+            <div class="option-right">View Requests</div>
+          </a>
+          <a class="option" id="return">
+            <div class="option-left"><img src="/assets/images/return.svg" width="90%" alt=""></div>
+            <div class="option-right">Return Book</div>
+          </a>
+        </div>
+
+        <div class="options-container">
+          <a class="option" href="/teacher/addBook">
+            <div class="option-left"><img src="/assets/images/button.svg" width="90%" alt=""></div>
+            <div class="option-right">Add New Book</div>
+          </a>
+          <a class="option" id="edit">
+            <div class="option-left"><img src="/assets/images/edit.svg" width="90%" alt=""></div>
+            <div class="option-right">Edit/Delete Book </div>
+          </a>
+        </div>
+
+        <div class="options-container">
+          <a class="option" href="/teacher/addStudent">
+            <div class="option-left"><img src="/assets/images/button.svg" width="90%" alt=""></div>
+            <div class="option-right">Add Student</div>
+          </a>
+        </div>
+
+        {% for book in books %}
+        <div class="book">
+          <div class="book-image">
+            <img src="/assets/images/uploads/{{book.image}} " alt="">
+          </div>
+          <div class="book-inner">
+            <div class="book-info">
+              <h2>{{ book.name }}</h2>
+              <h3>Author: {{ book.author }}</h3>
+              <h3>Genre: {{ book.genre }}</h3>
+              <p>Available Quantity- {{ book.quantity }}</p>
+            </div>
+            <div class="checkout">
+              <a href="/teacher/edit?id={{ book.id }} " class="checkout-btn">Edit/Delete</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+<script src="/assets/scripts/teacherHome.js"></script>
+{% endblock %}
