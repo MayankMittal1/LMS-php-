@@ -5,9 +5,9 @@ class ViewRequests{
     public function get(){
         if(isset($_SESSION['uid'])){
             if($_SESSION['type']=='teacher'){
-                $a=\Model\Teachers::getTeacherById($_SESSION['uid']);
+                $user=\Model\Teachers::getTeacherById($_SESSION['uid']);
                 echo \View\Loader::make()->render("templates/viewRequests.twig", array(
-                    "user" => $a,
+                    "user" => $user,
                     "requests" => \Model\Transactions::getRequestsTeacher(),
                 ));
             }

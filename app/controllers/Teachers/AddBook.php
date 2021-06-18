@@ -5,9 +5,9 @@ class AddBook{
     public function get(){
         if(isset($_SESSION['uid'])){
             if($_SESSION['type']=='teacher'){
-                $a=\Model\Teachers::getTeacherById($_SESSION['uid']);
+                $user=\Model\Teachers::getTeacherById($_SESSION['uid']);
                 echo \View\Loader::make()->render("templates/addBook.twig", array(
-                    "user" => $a,
+                    "user" => $user,
                 ));
             }
             else{
