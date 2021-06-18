@@ -3,7 +3,9 @@
 class AuthTeacher{
     public function post(){
         $user=\Model\Teachers::getTeacher($_POST['uid'],$_POST['password']);
-        session_destroy();
+        if(isset($_SESSION['uid'])){
+            session_destroy();
+        }
         if($user){
             $_SESSION['type']="teacher";
             $_SESSION['uid']=$user['id'];

@@ -9,12 +9,6 @@ class StudentLogout{
                 $host  = $_SERVER['HTTP_HOST'];
                 header("Location: http://$host/");
             }
-            else{
-                $host  = $_SERVER['HTTP_HOST'];
-                header("Location: http://$host/");
-            }
-        }
-        else{
             $host  = $_SERVER['HTTP_HOST'];
             header("Location: http://$host/");
         }
