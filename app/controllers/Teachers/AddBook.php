@@ -10,36 +10,23 @@ class AddBook{
                     "user" => $user,
                 ));
             }
-            else{
-                $host  = $_SERVER['HTTP_HOST'];
-                header("Location: http://$host/");
-            }
         }
-        else{
-            $host  = $_SERVER['HTTP_HOST'];
-            header("Location: http://$host/");
-        }
+        
+        header("Location: /");
     }
 
     public function post(){
-        if(isset($_SESSION['uid'])){
-            if($_SESSION['type']=='teacher'){
+        if(isset($_SESSION['uid']) && $_SESSION['type']=='teacher'){
                 $filename = $_FILES["image"]["name"];
                 $tempname = $_FILES["image"]["tmp_name"];   
                 $folder = "assets/images/uploads/".$filename;
-                move_uploaded_file($tempname, $folder);
+                move_uploaded_file($tempname, $_SERVER['DOCUMENT_ROOT']."/".$folder);
                 \Model\Books::create($_POST['bookName'],$_POST['authorName'],$_POST['genre'],$_POST['quantity'],$filename);
-                $host  = $_SERVER['HTTP_HOST'];
-                header("Location: http://$host/teacher/addBook");
-            }
-            else{
-                $host  = $_SERVER['HTTP_HOST'];
-                header("Location: http://$host/");
-            }
+                
+                header("Location: /teacher/addBook");
         }
         else{
-            $host  = $_SERVER['HTTP_HOST'];
-            header("Location: http://$host/");
+            header("Location: /");
         }
     }
 }

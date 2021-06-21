@@ -3,7 +3,7 @@
 namespace Model;
 
 class Transactions{
-    public static function initialize($bookId,$studentId){
+    public static function initializeTransaction($bookId,$studentId){
         $db = \DB::get_instance();
         $stmt = $db->prepare("insert into transactions(book_id,student_id,status) values(?,?,'pending')");
         $stmt->execute([$bookId,$studentId]);
