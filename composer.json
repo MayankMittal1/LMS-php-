@@ -1,6 +1,6 @@
 
 {
-    "name": "vrongmeal/mvc-lecture",
+    "name": "mayank/lms",
     "description": "Basic application with MVC architecture",
     "require": {
         "torophp/torophp": "dev-master",

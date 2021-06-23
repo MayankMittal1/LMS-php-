@@ -1,5 +1,7 @@
 <?php
 
+namespace Controller;
+
 class AddStudent
 {
     public function get()

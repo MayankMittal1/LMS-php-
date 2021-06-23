@@ -1,5 +1,7 @@
 <?php
 
+namespace Controller;
+
 class ApproveBook
 {
     public function get()

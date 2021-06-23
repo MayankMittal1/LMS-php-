@@ -1,5 +1,7 @@
 <?php
 
+namespace Controller;
+
 class BookCancel
 {
     public function get()

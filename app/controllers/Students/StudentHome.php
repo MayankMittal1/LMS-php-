@@ -1,5 +1,7 @@
 <?php
 
+namespace Controller;
+
 class StudentHome
 {
     public function get()

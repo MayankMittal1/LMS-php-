@@ -1,6 +1,6 @@
 <?php
 
-//namespace Controller;
+namespace Controller;
 
 class Index{
     public function get(){

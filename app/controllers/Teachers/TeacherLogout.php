@@ -1,5 +1,7 @@
 <?php
 
+namespace Controller;
+
 class TeacherLogout
 {
     public function get()

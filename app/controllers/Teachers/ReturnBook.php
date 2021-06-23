@@ -1,5 +1,7 @@
 <?php
 
+namespace Controller;
+
 class ReturnBook
 {
     public function get()
